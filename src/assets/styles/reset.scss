@@ -1,0 +1,36 @@
+//样式重置
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'MicrosoftYaHei';
+  font-size: 14px;
+  background: #fff;
+}
+img {
+  border: 0 none;
+  vertical-align: baseline;
+}
+a {
+  text-decoration: none;
+  color: #247eed;
+}
+a:hover {
+  color: #ffa00a;
+}
+li {
+  list-style: none;
+}
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:after {
+  content: '.';
+  display: block;
+  visibility: hidden;
+  clear: both;
+  height: 0;
+  font-size: 0;
+}

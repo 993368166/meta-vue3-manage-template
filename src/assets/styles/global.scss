@@ -1,0 +1,16 @@
+@import 'reset.scss';
+.el-menu {
+  border:0 !important;
+}
+.el-pagination {
+  justify-content: flex-end;
+}
+.el-table__inner-wrapper {
+  height: 100% !important;
+}
+.el-form-item__content {
+  display: block;
+}
+.el-upload--picture-card {
+  overflow: hidden;
+}
