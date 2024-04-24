@@ -1,37 +1,43 @@
-# officialWebsite
+# 玛特宇宙vue3后台管理模板
 
-This template should help get you started developing with Vue 3 in Vite.
+该模板应该可以帮助您开始在VITE中使用Vue 3进行开发。
 
-## Recommended IDE Setup
+## node版本
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+推荐node版本 20.0.0+ npm版本 9.8.0
 
-## Customize configuration
+## 自定义配置
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+查看 [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
+### 下载依赖
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### 启动开发模式
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+### 生产环境打包
 
 ```sh
-npm run build
+npm run build-prd
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+### 预发环境打包
 
 ```sh
-npm run test:unit
+npm run build-release
+```
+
+### 测试环境打包
+
+```sh
+npm run build-test
 ```
 
 ### Lint with [ESLint](https://eslint.org/)
@@ -39,3 +45,5 @@ npm run test:unit
 ```sh
 npm run lint
 ```
+
+

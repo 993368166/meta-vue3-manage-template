@@ -5,15 +5,8 @@
 import Request from '@/service/request.js'
 import QiniuRequest from '@/service/qiniuRequest.js'
 
-// 登录接口
-export const loginRequest = (params) => {
-  return new Request({
-    url: '/account/login',
-    params
-  }).request();
-}
 
-// 获取七牛云token
+// 获取七牛云token eg.
 export const getQiniuToken = () => {
   return new Request({
     url: '/settingStatic/getQiNiuToken'

@@ -5,7 +5,6 @@ import { useRoutesStore, useUserStore } from '@/store/index.js'
 import { storeToRefs } from 'pinia';
 import SubMenuRender from '@/layout/components/SubMenuRender/index.vue'
 import { useRoute, useRouter } from 'vue-router'
-import { editPassword, userSignOut } from '@/api/index.js'
 
 const isCollapse = ref(false);
 
@@ -45,12 +44,7 @@ const editPwd = () => {
     inputValidator: value => !!value,
     inputErrorMessage: '请输入新密码',
   })
-    .then( async ({ value: userPassword }) => {
-      const { code } = await editPassword({
-        id: userInfo.value.id,
-        userPassword
-      })
-      if (code !== 0) return;
+    .then( async ({ value }) => {
       ElMessage.success('修改成功！');
     })
 }
@@ -66,11 +60,6 @@ const signOut = () => {
     }
   )
     .then(async () => {
-      const { code } = await userSignOut({
-        id: userInfo.value.id
-      })
-      if (code !== 0) return;
-      userStore.deleteUserInfo();
       ElMessage({
         type: 'success',
         message: '退出登录！',
@@ -82,10 +71,10 @@ const signOut = () => {
 const handleCommand = async (command) => {
   switch (command) {
     case 'editPwd':
-      await editPwd();
+      editPwd();
       break;
     case 'signOut':
-      await signOut();
+      signOut();
       break;
     default:
       break;

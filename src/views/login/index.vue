@@ -1,16 +1,10 @@
 <script setup>
 import { ref } from 'vue'
 import { User, Lock } from '@element-plus/icons-vue'
-import { loginRequest } from '@/api/index.js'
-import { useUserStore, useLoadingStore, useRoutesStore } from '@/store/index.js';
+import { useLoadingStore } from '@/store/index.js';
 import { storeToRefs } from 'pinia';
 import router from "@/router/index.js";
-
-const userStore = useUserStore();
 const loadingStore = useLoadingStore();
-const routesStore = useRoutesStore();
-
-const { userInfo } = storeToRefs(userStore);
 const { isLoading } = storeToRefs(loadingStore);
 
 const loginFormRef = ref();
@@ -35,18 +29,11 @@ const resetForm = () => {
   loginFormRef.value.resetFields();
 }
 
-const handleLogin = async () => {
+const handleLogin = () => {
   if (!loginFormRef.value) return;
-  await loginFormRef.value.validate(async valid => {
+  loginFormRef.value.validate(valid => {
     if (valid) {
-      const { data, code } = await loginRequest(loginForm.value);
-      if (code !== 0) return;
-      userInfo.value = {
-        ...data,
-        account: loginForm.value.account
-      };
-      sessionStorage.setItem('token', data.token);
-      await router.push('/');
+      router.push('/');
     }
   })
 }
